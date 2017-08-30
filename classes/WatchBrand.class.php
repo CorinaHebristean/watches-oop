@@ -5,16 +5,6 @@ class WatchBrand extends Database
     protected $id;
     protected $name;
 
-    public function setId($_id)
-    {
-        $this->id = $_id;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
     public function setName($_name)
     {
         $this->name = $_name;
@@ -23,6 +13,16 @@ class WatchBrand extends Database
     public function getName()
     {
         return $this->name;
+    }
+
+    public function setId($_id)
+    {
+        $this->id = $_id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function insert()
@@ -46,13 +46,6 @@ class WatchBrand extends Database
 
     public function delete()
     {
-        $sql = "SELECT * FROM watches_brand
-                WHERE id = $this->id";
-        
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $this->items = $stmt->fetch();
-
         $sql = "DELETE FROM watches_brand
                 WHERE id = $this->id";
         
@@ -79,5 +72,26 @@ class WatchBrand extends Database
                 echo "<option value='" . $brand["name"] . "'>" . $brand["name"] . "</option>";
             }
         }
+    }
+
+    public function getAll()
+    {
+        $sql = "SELECT * FROM watches_brand";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    public function getById()
+    {
+        $sql = "SELECT * FROM watches_brand
+                WHERE id = $this->id";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetch();
     }
 }

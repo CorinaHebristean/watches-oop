@@ -157,4 +157,17 @@ class Watch extends Database
 
         return $stock;
     }
+
+    public function countProducts()
+    {
+        $sql = "SELECT * FROM watches
+                WHERE brand = '$this->brand'";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $allWatches = $stmt->fetchAll();
+
+        return count($allWatches);
+    }
 }

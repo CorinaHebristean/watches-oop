@@ -25,7 +25,7 @@ $_SESSION["price"] = $price;
 $_SESSION["currency"] = $currency;
 $_SESSION["stock"] = $stock;
 
-// creeam obiect de tip Watch
+// cream obiect de tip Watch
 $watch = new Watch();
 
 // scriem datele din formular in proprietati ( Watch )

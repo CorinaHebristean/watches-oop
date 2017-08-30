@@ -5,8 +5,8 @@ class Order extends Database
     protected $id;
     protected $total;
     protected $status;
-    protected $user_id;
-    protected $created_at;
+    protected $userId;
+    protected $createdAt;
 
     public function setId($_id)
     {
@@ -40,28 +40,28 @@ class Order extends Database
 
     public function setUserId($_userId)
     {
-        $this->user_id = $_userId;
+        $this->userId = $_userId;
     }
 
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
     public function setCreatedAt($_createdAt)
     {
-        $this->created_at = $_createdAt;
+        $this->createdAt = $_createdAt;
     }
 
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     public function insert()
     {
         $sql = "INSERT INTO orders( total, status, user_id, created_at)
-                VALUES( '$this->total', '$this->status', '$this->user_id', '$this->created_at')";
+                VALUES( '$this->total', '$this->status', '$this->userId', '$this->createdAt')";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -72,8 +72,8 @@ class Order extends Database
         $sql = "UPDATE orders
                 SET total = '$this->total',
                     status = '$this->status',
-                    user_id = '$this->user_id',
-                    created_at = '$this->created_at'
+                    user_id = '$this->userId',
+                    created_at = '$this->createdAt'
                 WHERE id = $this->id";
 
         $stmt = $this->conn->prepare($sql);
@@ -94,5 +94,18 @@ class Order extends Database
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
+    }
+
+    public function getAll()
+    {
+        $sql = "SELECT * FROM orders
+                ORDER by id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $orders = $stmt->fetchAll();
+
+        return $orders;
     }
 }

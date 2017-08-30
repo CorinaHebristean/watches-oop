@@ -97,4 +97,25 @@ class User extends Database
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }
+
+    public function login($username, $password)
+    {
+        $sql = "SELECT * FROM users
+                WHERE username = '$username'
+                AND password = '$password'";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $user = $stmt->fetch();
+
+        // echo $sql;
+        // exit;
+
+        if($user) {
+            return $user;
+        }
+
+        return false;
+    }
 }

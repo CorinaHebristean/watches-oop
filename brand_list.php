@@ -3,6 +3,7 @@
 include "header.php";
 
 $watchBrand = new WatchBrand();
+
 $watchBrands = $watchBrand->getAll();
 
 $watch = new Watch();
@@ -22,15 +23,22 @@ session_message("brands");
         <th>Action</th>
     </tr>
 
-    <?php foreach($watchBrands as $watchBrand): ?>
-    <tr>
-        <td> <?= $watchBrand["id"] ?> </td>
-        <td> <?= $watchBrand["name"] ?> </td>
-        <td> <?= $watch->countProducts($watchBrand["name"]) ?> </td>
-        <td>
-            <a href="brand_list_edit_form.php?id=<?= $watchBrand["id"]?>">Edit</a>
-            <a href="brand_list_delete.php?id=<?= $watchBrand["id"]?>">Delete</a>
-        </td>
-    </tr>
+    <?php foreach($watchBrands as $brand): ?>
+        <?php $watch->setBrand($brand["name"]); ?>
+        <tr>
+            <td> 
+                <?= $brand["id"] ?>
+            </td>
+            <td> 
+                <?= $brand["name"] ?> 
+            </td>
+            <td> 
+                <?= $watch->countProducts() ?> 
+            </td>
+            <td>
+                <a href="brand_list_edit_form.php?id=<?= $brand["id"]?>">Edit</a>
+                <a href="brand_list_delete.php?id=<?= $brand["id"]?>">Delete</a>
+            </td>
+        </tr>
     <?php endforeach ?>
 </table>

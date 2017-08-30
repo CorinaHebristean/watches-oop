@@ -108,4 +108,18 @@ class Order extends Database
 
         return $orders;
     }
+
+    public function getAllByUserId()
+    {
+        $sql = "SELECT * FROM orders
+                WHERE user_id = $this->userId
+                ORDER by id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $orders = $stmt->fetchAll();
+
+        return $orders;
+    }
 }

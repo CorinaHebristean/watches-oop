@@ -2,6 +2,14 @@
 
 include "config.php";
 
+$user = false;
+
+if(isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+}
+
+//var_dump($user);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +31,7 @@ include "config.php";
             <a href="cart.php">My cart</a>
         </li>
 
-        <?php if (true): ?>
+        <?php if ($user == false): ?>
             <li>
                 <a href="user_login_form.php">Login</a>
             </li>
@@ -32,7 +40,10 @@ include "config.php";
                 <a href="user_profile.php">My profile</a>
             </li>
             <li>
-                <a href="order_list.php">My order</a>
+                <a href="my_order_list.php">My order</a>
+            </li>
+            <li>
+                <a href="order_list.php">All order</a>
             </li>
             <li>
                 <a href="user_logout.php">Logout</a>

@@ -128,4 +128,15 @@ class User extends Database
 
         return false;
     }
+
+    public function getById()
+    {
+        $sql = "SELECT * FROM users
+                WHERE id = $this->id";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
 }

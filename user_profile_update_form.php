@@ -1,4 +1,16 @@
-<?php include "header.php"; ?>
+<?php include "header.php";
+
+$userObject = new User();
+
+$id = $_GET["id"];
+
+$userObject->setId($id);
+
+$user = $userObject->getById();
+
+//var_dump($user);
+
+?>
 
 <form action="user_profile_update.php?id=<?= $user["id"] ?>" method="post">
     <p>

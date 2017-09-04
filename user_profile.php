@@ -10,7 +10,7 @@ include "header.php";
 </h1>
 
 <p>
-    <a href="user_profile_update_form.php">Edit profile</a>
+    <a href="user_profile_update_form.php?id=<?= $user["id"] ?>">Edit profile</a>
     <a href="user_logout.php">Logout</a>
 </p>
 

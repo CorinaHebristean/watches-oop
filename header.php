@@ -37,13 +37,13 @@ if(isset($_SESSION["user"])) {
             </li>
         <?php else: ?>
             <li>
-                <a href="user_profile.php">My profile</a>
+                <a href="user_profile.php">My profile (<?= $user["username"] ?>)</a>
             </li>
             <li>
                 <a href="my_order_list.php">My order</a>
             </li>
             <li>
-                <a href="order_list.php">All order</a>
+                <a href="order_list.php">All orders</a>
             </li>
             <li>
                 <a href="user_logout.php">Logout</a>

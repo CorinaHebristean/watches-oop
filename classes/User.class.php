@@ -9,6 +9,16 @@ class User extends Database
     protected $city;
     protected $role;
 
+    public function setId($_id)
+    {
+        $this->id = $_id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function setUsername($_username)
     {
         $this->username = $_username;

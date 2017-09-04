@@ -16,7 +16,8 @@ function session_message($key = false)
 }
 
 //checkbox pentru selectare moneda
-function select_currency($watchCurrency=''){
+function select_currency($watchCurrency='')
+{
     $currencies = ["USD", "GBP", "LEI", "EURO"];
     foreach($currencies as $currency){
         if($currency == $watchCurrency){

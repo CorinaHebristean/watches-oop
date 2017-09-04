@@ -1,15 +1,12 @@
 <?php 
 
-include "header.php"; 
-
-$user = $_SESSION["user"];
-
-// var_dump($user);
+include "header.php";
+//var_dump($user);
 
 ?>
 
 <h1>
-    Welcome <?= $user["username"] ?>
+    Welcome <?= $user["username"] ?> (role: <?= $user["role"]; ?>)
 </h1>
 
 <p>
@@ -29,5 +26,9 @@ $user = $_SESSION["user"];
     <tr>
         <th>City</th>
         <td><?= $user["city"] ?></td>
+    </tr>
+    <tr>
+        <th>Role</th>
+        <td> <?= $user["role"] ?> </td>
     </tr>
 </table>

@@ -31,4 +31,8 @@ include "header.php";
         <th>Role</th>
         <td> <?= $user["role"] ?> </td>
     </tr>
+    <tr>
+        <th>Password</th>
+        <td><a href="user_password_edit_form.php?id=<?= $user["id"] ?>">Change password</a></td>
+    </tr>
 </table>

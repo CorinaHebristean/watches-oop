@@ -83,7 +83,6 @@ class User extends Database
         $sql = "UPDATE users
                 SET username = '$this->username',
                     email = '$this->email',
-                    password = '$this->password',
                     city = '$this->city',
                     role = '$this->role'
                 WHERE id = $this->id";
@@ -138,5 +137,15 @@ class User extends Database
         $stmt->execute();
 
         return $stmt->fetch();
+    }
+
+    public function editPassword()
+    {
+        $sql = "UPDATE users
+                SET password = '$this->password'
+                WHERE id = $this->id";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
     }
 }

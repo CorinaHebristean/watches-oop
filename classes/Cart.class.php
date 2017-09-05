@@ -27,8 +27,16 @@ class Cart extends Database
 
     public function calculateTotal()
     {
+        $total = 0;
 
+        foreach($this->products as $product) {
+            $subtotal = $product["price"] * $product["q"];
+            $total = $total + $subtotal;
+        }
+
+        return $total;
     }
+    
     public function countProducts()
     {
         return count($this->products);
@@ -36,7 +44,7 @@ class Cart extends Database
 
     public function getAllProducts()
     {
-        
+
     }
 
 

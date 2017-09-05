@@ -170,4 +170,24 @@ class Watch extends Database
 
         return count($allWatches);
     }
+
+    public function getById()
+    {
+        $sql = "SELECT * FROM watches
+                WHERE id = $this->id";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetch();;
+    }
+
+    public function selectQuantity($id)
+    {
+        $stock = $this->getStockProduct($id);
+
+        for($i=1; $i<=$stock; $i++) {
+            echo "<option value='$i'>$i</option>";
+        }
+    }
 }

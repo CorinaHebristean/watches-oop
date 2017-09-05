@@ -10,6 +10,8 @@ if(isset($_SESSION["user"])) {
 
 //var_dump($user);
 
+$cart = new Cart();
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@ if(isset($_SESSION["user"])) {
         </li>
 
         <li>
-            <a href="cart.php">My cart</a>
+            <a href="cart.php">My cart (<?= $cart->calculateTotal(); ?> USD - <?= $cart->countProducts(); ?> pcs)</a>
         </li>
 
         <?php if ($user == false): ?>

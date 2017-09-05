@@ -51,10 +51,14 @@ if(isset($_SESSION["message"])) {
 
                 <form action="add_to_cart.php?id=<?= $item["id"] ?>" method="get">
                     <input type="hidden" name="id" value="<?= $item["id"] ?>">
-                    <select name="q">
-                    </select>
+                        <select name="q">
+                            <?php $watch->selectQuantity($item["id"]); ?>
+                        </select>
                     <input type="submit" name="submit" value="Add to cart">
                 </form>
+
+                <?php else: ?>
+                    <p>Stoc epuizat</p>
                 <?php endif; ?>
 
             </td>
@@ -63,7 +67,6 @@ if(isset($_SESSION["message"])) {
                     <a href="add_to_cart.php?id=<?= $item["id"]?>">Adauga in cos</a>
                 <?php endif; ?>
                 <br>
-
             </td>
         </tr>
         <?php endforeach ?>

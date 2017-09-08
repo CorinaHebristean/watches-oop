@@ -109,6 +109,20 @@ class Order extends Database
         return $orders;
     }
 
+    public function getLastId()
+    {
+        $sql = "SELECT * FROM orders
+                ORDER by id DESC
+                LIMIT 1";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $order = $stmt->fetch();
+
+        return $order["id"];
+    }
+
     public function getAllByUserId()
     {
         $sql = "SELECT * FROM orders

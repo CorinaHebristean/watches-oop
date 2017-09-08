@@ -74,11 +74,6 @@ class Cart extends Database
         return count($this->products);
     }
 
-    public function getAllProducts()
-    {
-
-    }
-
     // Load products from session
     public function loadFromSession() 
     {

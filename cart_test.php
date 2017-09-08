@@ -23,7 +23,7 @@ echo "Avem " . $cart->countProducts() . " produse in cos <br>";
 $cart->addProduct($product);
 echo "Avem " . $cart->countProducts() . " produse in cos <br>";
 
-$cart->addProduct($product2 );
+$cart->addProduct($product2);
 
 
 echo "Avem " . $cart->countProducts() . " produse in cos <br>";

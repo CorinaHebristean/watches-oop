@@ -2,20 +2,33 @@
 
 include "header.php";
 
+//var_dump($_SESSION['cart']);
+
 $id = $_GET["id"];
+$q = $_GET["q"];
 
-$q = 1;
+// var_dump($q);
+// exit;
 
-if(isset($_GET["q"])){
-    $q = $_GET["q"];
-}
+$cart = new Cart();
 
 $watch = new Watch();
 $watch->setId($id);
-$product = $watch->getById();
+$result = $watch->getById();
 
-$cart = new Cart();
+$product = [
+    "id" => $result["id"],
+    "title" => $result["title"],
+    "price" => $result["price"],
+    "q" => $q,
+];
+
+// var_dump($product);
+// exit;
+
 $cart->addProduct($product);
+
+$productsFromCart = $cart->getProducts(); 
 
 // echo "<pre>";
 // var_dump($cart);

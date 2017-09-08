@@ -179,7 +179,7 @@ class Watch extends Database
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
-        return $stmt->fetch();;
+        return $stmt->fetch();
     }
 
     public function selectQuantity($id)

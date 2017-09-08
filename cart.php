@@ -3,7 +3,11 @@
 include "header.php";
 
 $cart = new Cart();
+$productsFromCart = $cart->getProducts();
 
+// echo "<pre>";
+// var_dump($productsFromCart);
+// echo "</pre>";
 ?>
 
 <h1>My cart (<?= $cart->countProducts(); ?>)</h1>
@@ -19,8 +23,8 @@ $cart = new Cart();
             <th>Action</th>
         </tr>
 
-        <?php foreach ($cart as $key=>$value) : ?>
-            
+        <?php foreach ($productsFromCart as $product) : ?>
+
             <tr>
                 <td> <?= $product["id"]; ?> </td>
                 <td> <?= $product["title"] ?> </td>

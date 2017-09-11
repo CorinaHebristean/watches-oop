@@ -14,40 +14,42 @@ $productsFromCart = $cart->getProducts();
 // Calculate total and other extra stuff 
 $total = $cart->calculateTotal();
 
-// Create Order Object
-$order = new Order();
 
-// Set all properties 
-$order->setTotal($total);
-$order->setStatus("inregistrat");
-$order->setUserId($userId);
-$order->setCreatedAt(date("Y-m-d H:i:s"));
+    // Create Order Object
+    $order = new Order();
 
-// Save Order 
-$order->insert();
+    // Set all properties 
+    $order->setTotal($total);
+    $order->setStatus("inregistrat");
+    $order->setUserId($userId);
+    $order->setCreatedAt(date("Y-m-d H:i:s"));
 
-// Read order id
-$orderId = $order->getLastId();
+    // Save Order 
+    $order->insert();
 
-//var_dump($orderId); exit;
+    // Read order id
+    $orderId = $order->getLastId();
 
-// Save order items
+    //var_dump($orderId); exit;
 
-// OrderItem Object
-$orderItem = new OrderItem();
+    // Save order items
 
-// Set order ID
-$orderItem->setOrderId($orderId); 
+    // OrderItem Object
+    $orderItem = new OrderItem();
 
-// Foreach $productsFromCart
-foreach ($productsFromCart as $product) {
-    // Save all order items
-    $orderItem->setProductName($product["title"]);
-    $orderItem->setPrice($product["price"]);
-    $orderItem->setQ($product["q"]);
+    // Set order ID
+    $orderItem->setOrderId($orderId); 
 
-    $orderItem->insert();
-}
+    // Foreach $productsFromCart
+    foreach ($productsFromCart as $product) {
+        // Save all order items
+        $orderItem->setProductName($product["title"]);
+        $orderItem->setPrice($product["price"]);
+        $orderItem->setQ($product["q"]);
+
+        $orderItem->insert();
+    }
+
 
 
 // Empty Cart

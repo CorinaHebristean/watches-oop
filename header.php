@@ -37,6 +37,9 @@ $cart = new Cart();
             <li>
                 <a href="user_login_form.php">Login</a>
             </li>
+            <li>
+                <a href="new_user_form.php">Register</a>
+            </li>
         <?php else: ?>
             <li>
                 <a href="user_profile.php">My profile (<?= $user["username"] ?>)</a>

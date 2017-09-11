@@ -77,7 +77,11 @@ class Cart extends Database
     // Load products from session
     public function loadFromSession() 
     {
-        return $_SESSION['cart'];
+        if(isset($_SESSION["cart"])) {
+            return $_SESSION['cart'];
+        } else {
+            return [];
+        }
     }
 
     // Save products in session
@@ -86,7 +90,7 @@ class Cart extends Database
         $_SESSION['cart'] = $this->products;
     }
 
-    // Return all producs from cart
+    // Return all products from cart
     public function getProducts() 
     {
         return $this->products;

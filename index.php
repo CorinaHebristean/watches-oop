@@ -16,12 +16,15 @@ if(isset($_SESSION["message"])) {
 ?>
 
 
+<h1>Buy new watch!</h1>
+
 <p>
-     <a href="add_product_form.php">Add product</a>
+     <a href="add_product_form.php" class="btn btn-primary">Add product</a>
 </p>
 
 
-    <table>
+    <table class="table table-bordered  table-hover">
+        <thead>
         <tr>
             <th>ID</th>
             <th>Brand</th>
@@ -31,9 +34,10 @@ if(isset($_SESSION["message"])) {
             <th>Currency</th>
             <th>Stock</th>
             <th>Quantity</th>
-            <th class="table-actions">Action</th>
         </tr>
+        </thead>
 
+        <tbody>
         <?php foreach($watches as $item): ?>
         <tr>
             <td><?php echo $item["id"]?></td>
@@ -54,22 +58,19 @@ if(isset($_SESSION["message"])) {
                         <select name="q">
                             <?php $watch->selectQuantity($item["id"]); ?>
                         </select>
-                    <input type="submit" name="submit" value="Add to cart">
+                    <input type="submit" name="submit" value="Add to cart" class="btn btn-info">
                 </form>
 
                 <?php else: ?>
-                    <p>Stoc epuizat</p>
+                    <p  class="alert alert-warning" role="alert">Stoc epuizat</p>
                 <?php endif; ?>
 
             </td>
-            <td>
-                <?php if($watch->isInStock($item["id"])) : ?>
-                    <a href="add_to_cart.php?id=<?= $item["id"]?>">Adauga in cos</a>
-                <?php endif; ?>
-                <br>
-            </td>
+          
         </tr>
         <?php endforeach ?>
+        </tbody>
     </table>
 
+    
 <?php include "footer.php" ?>

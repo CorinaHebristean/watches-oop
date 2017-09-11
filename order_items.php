@@ -16,7 +16,8 @@ $orderItems = $orderItem->getAll();
 
 <h2>Order #<?= $orderId ?> details</h2>
 
-<table>
+<table class="table table-hover table-bordered">
+    <thead>
     <tr>
         <th>Order ID</th>
         <th>Product name</th>
@@ -24,7 +25,9 @@ $orderItems = $orderItem->getAll();
         <th>Quantity</th>
         <th>Subtotal</th>
     </tr>
+    </thead>
 
+    <tbody>
     <?php foreach ($orderItems as $item) : ?>
         <tr>
             <td> <?= $item["order_id"] ?> </td>
@@ -34,6 +37,7 @@ $orderItems = $orderItem->getAll();
             <td> <?= $item["price"] * $item["q"] ?> </td>
         </tr>
     <?php endforeach ?>
+    </tbody>
 
 </table>
 

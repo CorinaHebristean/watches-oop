@@ -2,5 +2,7 @@
 <script src="vendor/jquery/jquery.js"></script>
 <script src="vendor/bootstrap-4.0.0-beta/dist/js/bootstrap.js"></script>
 
+</div>
+
 </body>
 </html>

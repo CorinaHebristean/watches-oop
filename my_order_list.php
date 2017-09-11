@@ -12,7 +12,8 @@ $orders = $order->getAllByUserId();
 
 <h2>My orders</h2>
 
-<table>
+<table class="table table-hover table-bordered">
+    <thead>
     <tr>
         <th>ID</th>
         <th>User</th>
@@ -21,7 +22,9 @@ $orders = $order->getAllByUserId();
         <th>Date</th>
         <th>Action</th>
     </tr>
+    </thead>
 
+    <tbody>
     <?php foreach ($orders as $order) : ?>
         <tr>
             <td> <?= $order["id"] ?> </td>
@@ -35,6 +38,7 @@ $orders = $order->getAllByUserId();
             </td>
         </tr>
     <?php endforeach ?>
+    </tbody>
 </table>
 
 

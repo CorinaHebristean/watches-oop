@@ -54,10 +54,13 @@ $cart = new Cart();
                 <a class="nav-link" href="user_profile.php">My profile (<?= $user["username"] ?>)</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="my_order_list.php">My order</a>
+                <a class="nav-link" href="order_list.php?userId=<?= $user['id'] ?>">My order</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="order_list.php">All orders</a>
+            <a class="nav-link" href="order_list.php">All orders</a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link" href="users.php">Customers</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="user_logout.php">Logout</a>

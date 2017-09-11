@@ -2,9 +2,22 @@
 
 include "header.php";
 
+// presupunem ca suntem pe full order list 
+$userId = 0; 
+if (isset($_GET['userId'])) {
+    $userId = $_GET['userId'];
+}
+
 $order = new Order();
 
-$orders = $order->getAll();
+if ($userId > 0) {
+
+    $order->setUserId($userId);
+    $orders = $order->getAllByUserId();
+} else {
+
+    $orders = $order->getAll(); 
+}
 
 $statuses = $order->getAvailableStatuses();
 
@@ -12,7 +25,8 @@ $statuses = $order->getAvailableStatuses();
 
 <div class="row">
     <div class="col-12">
-        <h2>My orders</h2>
+        <h2>
+            <?php echo ($userId > 0) ? "My orders" :  "All orders" ?></h2>
         <hr>
     </div>
 </div>

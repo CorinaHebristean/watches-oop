@@ -148,4 +148,14 @@ class User extends Database
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }
+
+    public function getAll()
+    {
+        $sql = "SELECT * FROM users";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

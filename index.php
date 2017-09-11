@@ -72,5 +72,4 @@ if(isset($_SESSION["message"])) {
         <?php endforeach ?>
     </table>
 
-</body>
-</html>
+<?php include "footer.php" ?>

@@ -6,3 +6,6 @@
     
     <input type="submit" name="submit" value="Adauga brand">
 </form>
+
+
+<?php include "footer.php" ?>

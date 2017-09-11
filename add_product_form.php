@@ -46,5 +46,5 @@ $watchBrand = new WatchBrand();
     <input type="submit" name="submit" value="Add">
 
 </form>    
-</body>
-</html>
+
+<?php include "footer.php" ?>

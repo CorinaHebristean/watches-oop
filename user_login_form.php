@@ -20,3 +20,6 @@ include "header.php";
     <input type="submit" name="submit" value="Log in">
 
 </form>
+
+
+<?php include "footer.php" ?>

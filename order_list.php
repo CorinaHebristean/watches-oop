@@ -31,3 +31,6 @@ $orders = $order->getAll();
         </tr>
     <?php endforeach ?>
 </table>
+
+
+<?php include "footer.php" ?>

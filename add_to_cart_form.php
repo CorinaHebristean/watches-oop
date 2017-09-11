@@ -36,3 +36,7 @@ $watchById = $watch->getById();
         </tr>
         <input type="submit" name="submit" value="Add to cart">
 </form>
+
+
+
+<?php include "footer.php" ?>

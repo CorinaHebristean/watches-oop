@@ -36,3 +36,6 @@ $orders = $order->getAllByUserId();
         </tr>
     <?php endforeach ?>
 </table>
+
+
+<?php include "footer.php" ?>

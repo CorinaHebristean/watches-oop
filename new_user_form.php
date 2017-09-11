@@ -30,3 +30,7 @@ include "header.php";
     <input type="submit" name="submit" value="Register">
 
 </form>
+
+
+
+<?php include "footer.php" ?>

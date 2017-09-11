@@ -38,3 +38,6 @@ $statuses = $order->getAvailableStatuses();
     <input type="submit" name="submit" value="Update status">
 
 </form>
+
+
+<?php include "footer.php" ?>

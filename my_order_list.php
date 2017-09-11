@@ -29,7 +29,10 @@ $orders = $order->getAllByUserId();
             <td> <?= $order["total"] ?> </td>
             <td> <?= $order["status"] ?> </td>
             <td> <?= $order["created_at"] ?> </td>
-            <td> <a href="order_items.php?orderId=<?= $order['id']; ?>">Details</a> </td>
+            <td> 
+                <a href="order_items.php?orderId=<?= $order['id']; ?>">Details</a>
+                <a href="order_status_update_form.php?orderId=<?= $order['id'] ?>">Change status</a>
+            </td>
         </tr>
     <?php endforeach ?>
 </table>

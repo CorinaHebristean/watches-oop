@@ -109,6 +109,19 @@ class Order extends Database
         return $orders;
     }
 
+    public function getByOrderId()
+    {
+        $sql = "SELECT * FROM orders
+                WHERE id =  $this->id";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $order = $stmt->fetch();
+
+        return $order;
+    }
+
     public function getLastId()
     {
         $sql = "SELECT * FROM orders
@@ -135,5 +148,25 @@ class Order extends Database
         $orders = $stmt->fetchAll();
 
         return $orders;
+    }
+
+    public function updateStatus()
+    {
+        $sql = "UPDATE orders
+                SET status = '$this->status'
+                WHERE id = $this->id";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+
+    public function getAvailableStatuses()
+    {
+        return [
+            "inregistrat" => "Inregistrat",
+            "in drum spre curier" => "In drum spre curier",
+            "livrat" => "Livrat",
+            "anulat" => "Anulat",
+        ];
     }
 }

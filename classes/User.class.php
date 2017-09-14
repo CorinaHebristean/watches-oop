@@ -83,8 +83,7 @@ class User extends Database
         $sql = "UPDATE users
                 SET username = '$this->username',
                     email = '$this->email',
-                    city = '$this->city',
-                    role = '$this->role'
+                    city = '$this->city''
                 WHERE id = $this->id";
         
         $stmt = $this->conn->prepare($sql);
@@ -158,4 +157,23 @@ class User extends Database
 
         return $stmt->fetchAll();
     }
+
+    public function is_admin()
+    {  
+        $sql = "SELECT * FROM users
+                WHERE id = $this->id";
+    
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    
+        $user = $stmt->fetch();
+    
+        $role = $user["role"];
+    
+        if ($role == "admin"){
+            return true;
+        }
+            return false;
+    }
+    
 }

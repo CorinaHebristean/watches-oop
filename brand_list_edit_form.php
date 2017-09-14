@@ -22,7 +22,7 @@ $brand = $watchBrand->getById();
         <?php session_message("brand_name") ?>
     </p>
 
-    <input type="submit" name="submit" value="Update">
+    <input class="btn btn-success btn-sm" type="submit" name="submit" value="Update">
     
 </form>
 </body>

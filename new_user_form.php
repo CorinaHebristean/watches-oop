@@ -25,6 +25,8 @@ include "header.php";
     <p>
         Password
         <input type="password" name="password">
+ 
+        <?php validate_password(); ?>
     </p>
 
     <input type="submit" name="submit" value="Register">

@@ -10,11 +10,11 @@ include "header.php";
 </h1>
 
 <p>
-    <a href="user_profile_update_form.php?id=<?= $user["id"] ?>">Edit profile</a>
-    <a href="user_logout.php">Logout</a>
+    <a href="user_profile_update_form.php?id=<?= $user["id"] ?>" class="btn btn-outline-warning btn-sm">Edit profile</a>
+    <a href="user_logout.php" class="btn btn-outline-secondary btn-sm">Logout</a>
 </p>
 
-<table>
+<table class="table table-bordered table-sm">
     <tr>
         <th>Username</th>
         <td><?= $user["username"] ?></td>
@@ -33,6 +33,6 @@ include "header.php";
     </tr>
     <tr>
         <th>Password</th>
-        <td><a href="user_password_edit_form.php?id=<?= $user["id"] ?>">Change password</a></td>
+        <td><a href="user_password_edit_form.php?id=<?= $user["id"] ?>" class="btn btn-outline-danger btn-sm">Change password</a></td>
     </tr>
 </table>

@@ -27,3 +27,13 @@ function select_currency($watchCurrency='')
         }
     }
 }
+
+function validate_password() {
+    $valid = 1;
+
+    if(strlen("password") < 8) {    
+        $valid = 0;
+        $_SESSION["message"]["password"] = "Password must have at least 8 characters";
+    }
+}
+

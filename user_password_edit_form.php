@@ -18,6 +18,6 @@ $user = $userObject->getById();
         <input type="password" name="password" value="<?= $user["password"] ?>">
     </p>
 
-    <input type="submit" name="submit" value="Change password">
+    <input type="submit" name="submit" value="Change password" class="btn btn-success btn-sm">
 
 </form>

@@ -169,4 +169,36 @@ class Order extends Database
             "anulat" => "Anulat",
         ];
     }
+
+    public function getAllByStatusAndUser($status = "inregistrat", $userId = 1)
+    {
+        $sql = "SELECT * FROM orders
+                WHERE 1"; 
+            
+        if ($status == true) {
+            $sql .= " AND status = '$status'";
+        }
+        
+        if ($userId > 0) {
+            $sql .= " AND user_id = $userId";
+        }
+        
+        $sql .= " ORDER BY id DESC";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $orders = $stmt->fetchAll();
+
+        return $orders;
+    }
+
+    /*
+    SELECT * FROM orders WHERE id > 0 
+    AND user_id = 2  
+    AND status = 'inregistrat'
+    AND total  > 500
+    AND total < 1000
+    ORDER BY id DESC
+    */
 }

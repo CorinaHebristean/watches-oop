@@ -8,16 +8,15 @@ if (isset($_GET['userId'])) {
     $userId = $_GET['userId'];
 }
 
+$status = false;
+if(isset($_GET["status"])) {
+    $status = $_GET["status"];
+}
+
 $order = new Order();
 
-if ($userId > 0) {
 
-    $order->setUserId($userId);
-    $orders = $order->getAllByUserId();
-} else {
-
-    $orders = $order->getAll(); 
-}
+$orders = $order->getAllByStatusAndUser($status, $userId);
 
 $statuses = $order->getAvailableStatuses();
 
@@ -36,7 +35,7 @@ $statuses = $order->getAvailableStatuses();
     <div class="col-2">
         <?php foreach($statuses as $key => $status): ?>
             <p>
-            <a href="#" class="btn btn-outline-primary  btn-block"><?= $status ?></a> 
+            <a href="order_list.php?userId=<?= $userId ?>&status=<?= $status ?>" class="btn btn-outline-primary  btn-block"><?= $status ?></a> 
             </p>
         <?php endforeach; ?>
 
@@ -45,16 +44,16 @@ $statuses = $order->getAvailableStatuses();
     <div class="col-10">
   
 
-        <table class="table table-hover table-bordered">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Total</th>
-                <th>Status</th>
-                <th>Date</th>
-                <th>Action</th>
-            </tr>
+        <table class="table table-hover table-bordered table-sm">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
             </thead>
 
             <tbody>
@@ -65,7 +64,7 @@ $statuses = $order->getAvailableStatuses();
                     <td> <?= $order["total"] ?> </td>
                     <td> <?= $order["status"] ?> </td>
                     <td> <?= $order["created_at"] ?> </td>
-                    <td> <a href="order_items.php?orderId=<?= $order['id']; ?>"  class="btn btn-outline-dark">Details</a> </td>
+                    <td> <a href="order_items.php?orderId=<?= $order['id']; ?>"  class="btn btn-outline-dark btn-sm">Details</a> </td>
                 </tr>
             <?php endforeach ?>
             </tbody>

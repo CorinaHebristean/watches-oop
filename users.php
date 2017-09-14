@@ -12,8 +12,8 @@ $users = $user->getAll();
 
 <h1>Customers</h1>
 
-<table class="table table-hover table-bordered">
-    <thead>
+<table class="table table-hover table-bordered table-sm">
+    <thead class="thead-inverse">
         <tr>
             <th>User ID</th>
             <th>Username</th>
